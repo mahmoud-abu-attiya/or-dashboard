@@ -1,0 +1,48 @@
+.profile{
+  .user{
+    display: flex;
+    align-items: center;
+    gap:10px;
+    &_image{
+      width: 20%;
+      border: 3px solid $primary-color !important;
+      display: flex;
+      align-items: center;
+      border-radius: 50%;
+      justify-self: center;
+      position: relative;
+      @media (max-width:767px) {
+        width: 35%;
+        
+      }
+      img{
+        border-radius: 50%;
+      }
+      i{
+        position: absolute;
+        top: 70%;
+        right: 0%;
+        background-color: #f2ba35;
+        border-radius: 50%;
+        width: 20%;
+        min-width: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        aspect-ratio: 1/1;
+        cursor: pointer;
+      }
+      input{
+        display: none;
+      }
+    }
+    &_info{
+      input{
+        padding: 10px;
+        border-radius: 10px;
+        outline: none;
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

@@ -1,0 +1,115 @@
+header {
+  display: flex;
+  background-image: linear-gradient(
+      rgba(242, 185, 53, 0.6),
+      rgba(61, 5, 46, 0.6)
+    ),
+    url("../public/images/index-bg.jpg");
+  background-size: cover;
+  background-position: center center;
+  height: 100vh;
+  min-height: 680px;
+  .lf,
+  .ri {
+    height: 100%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .lf {
+    color: #fff;
+    > div {
+      width: 60%;
+      h1 {
+        font-size: clamp(30px, 4vw, 50px);
+        text-shadow: 3px 2px $secondary-color, -3px -2px $primary-color;
+        font-weight: bolder;
+        // font-size: 50px;
+      }
+      p {
+        font-size: larger;
+      }
+      button {
+        background-color: #f2b9352c;
+        border-radius: 10px;
+        color: #fff;
+        border: 2px solid;
+        backdrop-filter: blur(5px);
+        padding: 10px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+        gap: 10px;
+        transition: 0.2s;
+        &:hover {
+          background-color: #f2b9354d;
+        }
+        i {
+          font-size: 25px;
+        }
+      }
+    }
+    form {
+      width: 100%;
+      text-align: left;
+      margin-top: 50px;
+    }
+    @media (max-width: 992px) {
+      width: 100%;
+      > div {
+        width: calc(100% - 20px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+  .ri {
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.3);
+    form {
+      width: 60%;
+    }
+  }
+  form {
+    color: #212529;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #fff;
+    padding: 20px;
+    width: 60%;
+    max-width: 700px;
+    input,
+    button {
+      width: 100%;
+      outline: none;
+      padding: 10px;
+      border-radius: 10px;
+      border-radius: 10px;
+    }
+    div {
+      display: flex;
+      flex-direction: column;
+    }
+    a {
+      text-decoration: underline !important;
+      color: blue !important;
+      width: fit-content;
+    }
+    button[type="submit"] {
+      background-color: $primary-color;
+      transition: 0.2s;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
