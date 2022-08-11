@@ -5,18 +5,14 @@
   font-style: normal;
   font-weight: 400;
   src: url('../fonts/Nunito-VariableFont_wght.ttf'); /* IE9 Compat Modes */
-  // src: local(''),
-  //      url('../fonts/nunito-v25-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  //      url('../fonts/nunito-v25-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
-  //      url('../fonts/nunito-v25-latin-regular.woff') format('woff'), /* Modern Browsers */
-  //      url('../fonts/nunito-v25-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
-  //      url('../fonts/nunito-v25-latin-regular.svg#Nunito') format('svg'); /* Legacy iOS */
 }
 *{
   font-family: 'Nunito';
 }
 body {
   color:#212529;
+  margin:0;
+  padding:0;
 }
 a {
   color: inherit;
@@ -25,6 +21,20 @@ a {
   &:hover {
     color: inherit;
   }
+}
+h1, h2, h3, h4, h5, h6{
+  text-transform: capitalize;
+}
+input, select, textarea{
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+}
+.is-invalid{
+  border-color: red !important;
 }
 .round {
   border-radius: 1rem;
@@ -176,8 +186,16 @@ aside.show-sidebar{
 .fa-star{
   color: $primary-color;
 }
+.model{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+}
 @import 'login';
 @import 'dashboard';
 @import 'addNewClient';
 @import 'clients';
 @import 'profile';
+@import 'clientPage';

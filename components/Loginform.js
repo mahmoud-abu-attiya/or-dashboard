@@ -1,25 +1,53 @@
+import axios from "axios";
 import { useState, useEffect } from "react";
 
 const Loginform = () => {
   const [subemited, setSubemited] = useState(false);
+  const [LoginError, setLoginError] = useState(false);
   useEffect(() => {
     let inpUser = document.getElementById("loginName");
     let inpPass = document.getElementById("loginPass");
     let btnSub = document.querySelector("button[type=submit]");
-    btnSub.onclick = () => {
-      if (inpPass.value != "" && inpUser != "") {
-        setSubemited(true);
-      }
+    let loginForm = document.querySelector(".loginForm");
+    const formSubmit = () => {
+      let USER_STATUS = {
+        email: inpUser.value,
+        password: inpPass.value,
+      };
+      setSubemited(true);
+      axios
+        .post(
+          "https://blooming-caverns-98396.herokuapp.com/api/login",
+          USER_STATUS,
+          )
+        .then((res) => {
+          setLoginError(false)
+          console.log(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+          setSubemited(false);
+          setLoginError(true);
+        })
+    }
+    loginForm.onsubmit = (e) => {
+      e.preventDefault();
+      formSubmit();
     };
   }, []);
   return (
-    <form className="bord-2 round shadow">
+    <form className="bord-2 round shadow loginForm">
       <h4>Log In</h4>
+      {LoginError && (
+        <div className="alert alert-danger p-2" role="alert">
+          <strong>Error!</strong> email or password in incorrect. Try again.
+        </div>
+      )}
       <div>
-        <label htmlFor="loginName">Username</label>
+        <label htmlFor="loginName">Email</label>
         <input
-          type="text"
-          name=""
+          type="email"
+          name="email"
           id="loginName"
           className="bg-light bord"
           required
@@ -28,8 +56,8 @@ const Loginform = () => {
       <div>
         <label htmlFor="loginPass">Password</label>
         <input
-          type="password"
-          name=""
+          type="text"
+          name="password"
           id="loginPass"
           className="bg-light bord"
           required

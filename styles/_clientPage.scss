@@ -1,0 +1,64 @@
+.client_page{
+  .client{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    button{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      background-color: $primary-color;
+      border-radius: 10px;
+      padding: 20px;
+      font-size: 20px;
+    }
+  }
+  .client_services{
+    .car{
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      box-shadow: none;
+      background-color: $primary-color;
+      margin-bottom: 10px;
+      .progress{
+        height: 20px;
+        width: 50%;
+      }
+    }
+  }
+  .service-done{
+    opacity: 0.7;
+    .done{
+      color: green;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      i{
+        font-size: 30px;
+      }
+    }
+  }
+  .add_service_model{
+    padding: 10px;
+    // display: none;
+    width: fit-content;
+    .inputs{
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      > div{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      [type="submit"]{
+        background-color: $primary-color;
+      }
+    }
+  }
+}

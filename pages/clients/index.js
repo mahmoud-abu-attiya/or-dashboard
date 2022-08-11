@@ -30,7 +30,7 @@ const clients = ({ clients }) => {
                 <div className="row g-4 row-cols-1">
                   {clients.map((client) => {
                     return(
-                      <div key={client.id} className="col">
+                      <div key={client.id} className="col" loading="lazy">
                         <Client
                           id={client.id}
                           name={client.name}

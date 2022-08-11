@@ -12,6 +12,7 @@ export default function Home() {
         setmobile(false);
       }
     };
+    updateLayouts();
     window.addEventListener("resize", updateLayouts);
   }, []);
 
