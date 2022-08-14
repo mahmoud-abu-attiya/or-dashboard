@@ -54,13 +54,13 @@ const Details = ({ user }) => {
                   <h2>{user.name}</h2>
                   <div className="mb-2">
                     <a href={"tel:" + user.phone}>
-                      <i className="fa fa-phone" aria-hidden="true"></i>{" "}
+                      <i className="fa fa-phone info" aria-hidden="true"></i>{" "}
                       {user.phone}
                     </a>
                   </div>
                   <div className="">
                     <a href={"mailto:" + user.email}>
-                      <i className="fas fa-at"></i> {user.email}
+                      <i className="fas fa-at info"></i> {user.email}
                     </a>
                   </div>
                 </div>

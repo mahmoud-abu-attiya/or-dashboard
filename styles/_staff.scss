@@ -1,0 +1,65 @@
+.our-staff{
+  header.staff{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    h2{
+      margin: 0;
+    }
+    form{
+      display: flex;
+      input{
+        background-color: #f6f6ff;
+        border-bottom-right-radius: 0px;
+        border-top-right-radius: 0px;
+      }
+      button{
+        outline: none;
+        background-color: $primary-color;
+        color: $secondary-color;
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+    }
+  }
+  .staff-card{
+    transition: 0.3s;
+    &:hover{
+      background-color: #ebebf6;
+    }
+    .head{
+      align-items: center;
+      margin-bottom: 20px;
+      cursor: pointer;
+      .staff-img{
+        border-radius: 50%;
+        overflow: hidden;
+        aspect-ratio: 1/1;
+      }
+    }
+    .social{
+      display: flex;
+      gap: 15px;
+      margin: auto;
+      width: fit-content;
+      a{
+        border: 1px solid rgba(0, 0, 0, 0.092);
+        transition: 0.3s;
+        border-radius: 10px;
+        padding: 10px;
+        aspect-ratio: 1/1;
+        object-fit: cover;
+        display: flex;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.1);
+        align-items: center;
+        &:hover{
+          scale: 1.1;
+          background-color: rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.116);
+        }
+      }
+    }
+  }
+}

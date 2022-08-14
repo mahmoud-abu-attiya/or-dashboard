@@ -17,7 +17,7 @@ export default function Home() {
   }, []);
 
   return (
-    <header>
+    <header className="home">
       <div className="lf text-center">
         <div>
           <h1>POWERFUL TECHNOLOGY MADE SIMPLE</h1>

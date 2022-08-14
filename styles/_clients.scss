@@ -2,10 +2,14 @@
   // background-image: linear-gradient( $primary-color, $secondary-color);
   // color: #fff;
   &_info{
+    h4 i{
+      color: $secondary-color;
+      font-size: 14px;
+    }
     a{
       font-size: 12px;
     }
-    i{
+    i.info{
       background-color: $secondary-color;
       color: $primary-color;
       padding: 7px;

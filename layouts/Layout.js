@@ -3,10 +3,12 @@ import Footer from "./Footer";
 import Script from "next/script";
 import Sidebar from "./Sidebar";
 import Overlay from "./Overlay";
+import Loading from "./Loading";
 
 export default function Layout({ children }) {
   return (
     <>
+      {/* <Loading /> */}
       <Navbar />
       <Overlay />
       <main>{children}</main>

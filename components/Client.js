@@ -6,14 +6,14 @@ const Client = (props) => {
       <div className="client_info row g-0">
         <div className="col-sm-4">
           <Link href={'/clients/' + props.id}>
-            <a><h4>{props.name}</h4></a>
+            <a><h4>{props.name} <i className="fas fa-link"></i></h4></a>
           </Link>
         </div>
         <div className="col-sm-4 col-6">
-          <a href='tel:+201020384108'><i className="fa fa-phone" aria-hidden="true"></i> +201020384108</a>
+          <a href='tel:+201020384108'><i className="fa fa-phone info" aria-hidden="true"></i> +201020384108</a>
         </div>
         <div className="col-sm-4 col-6">
-          <a href='mailto:mahmoud@email.com'><i className="fas fa-at"></i> mahmoud@email.com</a>
+          <a href='mailto:mahmoud@email.com'><i className="fas fa-at info"></i> mahmoud@email.com</a>
         </div>
       </div>
       <hr />

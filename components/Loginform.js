@@ -1,7 +1,11 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useRouter } from "next/dist/client/router";
+import Cookies from "js-cookie";
+
 
 const Loginform = () => {
+  const router = useRouter()
   const [subemited, setSubemited] = useState(false);
   const [LoginError, setLoginError] = useState(false);
   useEffect(() => {
@@ -23,6 +27,9 @@ const Loginform = () => {
         .then((res) => {
           setLoginError(false)
           console.log(res.data);
+          Cookies.set("token", res.data, { expires: 10000 })
+          Cookies.set("log" , true , { expires: 10000 })
+          router.push("/dashboard")
         })
         .catch((err) => {
           console.log(err);
@@ -34,7 +41,7 @@ const Loginform = () => {
       e.preventDefault();
       formSubmit();
     };
-  }, []);
+  }, [router]);
   return (
     <form className="bord-2 round shadow loginForm">
       <h4>Log In</h4>
