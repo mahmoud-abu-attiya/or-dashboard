@@ -15,45 +15,48 @@ export const getStaticProps = async () => {
   };
 };
 export default function Staff({ staff }) {
-  const [query, setQuery] = useState("")
+  const [query, setQuery] = useState("");
 
   return (
-    <>
-      <div className="container-xxl">
-        <Sidebar />
-        <div className="content our-staff">
-          <Layout>
-            <header className="staff">
-              <h2>Our Staff</h2>
-              <form>
-                <input type="search" id="staff_search" placeholder="Search" onChange={(e)=> setQuery(e.target.value)} />
-                <button type="submit" className="bord-2">
-                  <i className="fas fa-search" />
-                </button>
-              </form>
-            </header>
-            <div className="row g-3">
-              {staff.filter((item) => item.name.toLowerCase().includes(query))
-              .map((per) => {
-                return (
-                  <div className="col-md-4" key={per.id}>
-                    <Empoloy
-                      url={per.id}
-                      name={per.name}
-                      photo={avatar}
-                      position="web dev"
-                      linkedin="link.com"
-                      facebook="face.com"
-                      twitter="twitter.com"
-                      instagram="insta.com"
-                    />
-                  </div>
-                );
-              })}
-            </div>
-          </Layout>
+    <div className="our-staff">
+      <Layout>
+        <header className="staff">
+          <h2>Our Staff</h2>
+          <form>
+            <input
+              type="search"
+              id="staff_search"
+              placeholder="Search"
+              onChange={(e) => setQuery(e.target.value)}
+            />
+            <button type="submit" className="bord-2">
+              <i className="fas fa-search" />
+            </button>
+          </form>
+        </header>
+        <div className="row g-3">
+          {staff
+            .filter((item) =>
+              item.name.toLowerCase().includes(query.toLowerCase())
+            )
+            .map((per) => {
+              return (
+                <div className="col-md-4" key={per.id}>
+                  <Empoloy
+                    url={per.id}
+                    name={per.name}
+                    photo={avatar}
+                    position="web dev"
+                    linkedin="link.com"
+                    facebook="face.com"
+                    twitter="twitter.com"
+                    instagram="insta.com"
+                  />
+                </div>
+              );
+            })}
         </div>
-      </div>
-    </>
+      </Layout>
+    </div>
   );
 }

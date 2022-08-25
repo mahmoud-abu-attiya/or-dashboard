@@ -105,23 +105,40 @@ nav.navbar{
   top: 0;
   left: 0;
   z-index: 19;
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(5px);
   display: none;
 }
 .container-xxl {
-  padding: 10px;
+  padding: 1rem;
   display: flex;
+  flex-direction: column;
   gap: 1rem;
 }
 .content{
-  width: 100%;
-  display: grid;
+  // position: relative;
+//   display: flex;
+//   flex-direction: column;
+//   gap: 20px;
+//   justify-content: space-between;
+//   width: 100%;
+//   height: fit-content;
+//   min-height:calc(100vh - 20px);
+}
+.content-container{
+  display: flex;
   gap: 1rem;
-  height: fit-content;
+}
+main{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  width: 100%;
 }
 aside {
+  // position: fixed;
   height: fit-content;
-  min-height: calc(100vh - 20px);
+  min-height: calc(100vh - 2rem);
   width: 25%;
   display: flex;
   flex-direction: column;
@@ -130,7 +147,7 @@ aside {
     z-index: 20;
     top: 10px;
     left: 10px;
-    width: 250px;
+    width: 250px !important;
     transition: 0.5s;
     transform: translateX(-270px);
   }
@@ -148,7 +165,6 @@ aside {
       border-radius: 0.7rem;
       list-style: none;
       padding: 7px 10px;
-      // color: #fff;
       background-color: #fff;
       margin-bottom: 10px;
       transition: 0.3s;
@@ -207,6 +223,18 @@ aside.show-sidebar{
 }
 .fa-star{
   color: $primary-color;
+}
+i.info{
+  background-color: $secondary-color;
+  color: $primary-color;
+  padding: 7px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+  @media (max-width:767px) {
+    font-size: 12px;
+    padding: 5px;
+  }
 }
 .model{
   position: fixed;

@@ -7,17 +7,8 @@ import Layout from "../layouts/Layout";
 
 export default function Projects() {
   return (
-    <>
-      <div className="container-xxl">
-        <Sidebar />
-        <div className="content dashboard">
-          <Layout>
-            <div className="car">
-              Projects
-            </div>
-          </Layout>
-        </div>
-      </div>
-    </>
+    <Layout>
+      <div className="car">Projects</div>
+    </Layout>
   );
 }

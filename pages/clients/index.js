@@ -16,38 +16,28 @@ export const getStaticProps = async () => {
 
 const clients = ({ clients }) => {
   return (
-    <>
-      <div className="container-xxl">
-        <Sidebar />
-        <div className="content">
-          <Layout>
-            <div className="row row-cols-1 g-3">
-              <div className="col">
-                <AddNewD />
-              </div>
-              <div className="col">
-                <h2>Clients</h2>
-                <div className="row g-4 row-cols-1">
-                  {clients.map((client) => {
-                    return(
-                      <div key={client.id} className="col" loading="lazy">
-                        <Client
-                          id={client.id}
-                          name={client.name}
-                          />
-                        {/* <Link href={"/clients/" + client.id}>
+    <Layout>
+      <div className="row row-cols-1 g-3">
+        <div className="col">
+          <AddNewD />
+        </div>
+        <div className="col">
+          <h2>Clients</h2>
+          <div className="row g-4 row-cols-1">
+            {clients.map((client) => {
+              return (
+                <div key={client.id} className="col" loading="lazy">
+                  <Client id={client.id} name={client.name} />
+                  {/* <Link href={"/clients/" + client.id}>
                           <h3>{client.name}</h3>
                         </Link> */}
-                      </div>
-                    )
-                  })}
                 </div>
-              </div>
-            </div>
-          </Layout>
+              );
+            })}
+          </div>
         </div>
       </div>
-    </>
+    </Layout>
   );
 };
 export default clients;

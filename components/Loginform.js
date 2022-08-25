@@ -27,8 +27,8 @@ const Loginform = () => {
         .then((res) => {
           setLoginError(false)
           console.log(res.data);
-          Cookies.set("token", res.data, { expires: 10000 })
-          Cookies.set("log" , true , { expires: 10000 })
+          Cookies.set("token", res.data, { expires: 9999 })
+          Cookies.set("log" , true , { expires: 9999 })
           router.push("/dashboard")
         })
         .catch((err) => {

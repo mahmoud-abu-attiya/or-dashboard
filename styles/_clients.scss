@@ -9,18 +9,6 @@
     a{
       font-size: 12px;
     }
-    i.info{
-      background-color: $secondary-color;
-      color: $primary-color;
-      padding: 7px;
-      border-radius: 8px;
-      border: 1px solid rgba(0, 0, 0, 0.1);
-      box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
-      @media (max-width:767px) {
-        font-size: 12px;
-        padding: 5px;
-      }
-    }
   }
   .car{
     color: #000;

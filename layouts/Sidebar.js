@@ -19,37 +19,29 @@ const Sidebar = () => {
       })
       .then((res) => {
         router.push("/");
-        Cookies.remove("token", "username");
+        Cookies.remove("token");
       });
   };
-  useEffect(() => {
-    axios
-      .get("https://blooming-caverns-98396.herokuapp.com/api/user", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((res) => {
-        setUser(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [token]);
+  // useEffect(() => {
+  //   axios
+  //     .get("https://blooming-caverns-98396.herokuapp.com/api/user", {
+  //       headers: {
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //     })
+  //     .then((res) => {
+  //       setUser(res.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // }, [token]);
   return (
-    <aside className="round car" id="sidebar">
+    <aside className="round car col-lg-2" id="sidebar">
       <div className="aside_logo">
         <Image src={logo} alt="logo" />
       </div>
       <hr className="css-n4yg98"></hr>
-      <Link href="/profile">
-        <a className="text-center">
-          <p className="mb-3">
-            <i className="fa fa-user" aria-hidden="true"></i>
-            {" " + user.name}
-          </p>
-        </a>
-      </Link>
       <div className="aside_links">
         <ul>
           <Link href="/dashboard">

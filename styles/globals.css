@@ -136,34 +136,50 @@ nav.navbar button {
   top: 0;
   left: 0;
   z-index: 19;
-  -webkit-backdrop-filter: blur(3px);
-          backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
   display: none;
 }
 
 .container-xxl {
-  padding: 10px;
+  padding: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 1rem;
+}
+
+.content-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   gap: 1rem;
 }
 
-.content {
-  width: 100%;
-  display: -ms-grid;
-  display: grid;
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   gap: 1rem;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+  width: 100%;
 }
 
 aside {
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
-  min-height: calc(100vh - 20px);
+  min-height: calc(100vh - 2rem);
   width: 25%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -180,7 +196,7 @@ aside {
     z-index: 20;
     top: 10px;
     left: 10px;
-    width: 250px;
+    width: 250px !important;
     -webkit-transition: 0.5s;
     transition: 0.5s;
     -webkit-transform: translateX(-270px);
@@ -281,6 +297,23 @@ aside.show-sidebar {
 
 .fa-star {
   color: #f2ba35;
+}
+
+i.info {
+  background-color: #3d052e;
+  color: #f2ba35;
+  padding: 7px;
+  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+          box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+@media (max-width: 767px) {
+  i.info {
+    font-size: 12px;
+    padding: 5px;
+  }
 }
 
 .model {
@@ -618,23 +651,6 @@ header.home form button[type="submit"]:hover {
 
 .client_info a {
   font-size: 12px;
-}
-
-.client_info i.info {
-  background-color: #3d052e;
-  color: #f2ba35;
-  padding: 7px;
-  border-radius: 8px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  -webkit-box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-          box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-}
-
-@media (max-width: 767px) {
-  .client_info i.info {
-    font-size: 12px;
-    padding: 5px;
-  }
 }
 
 .client .car {
