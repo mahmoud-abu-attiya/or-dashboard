@@ -22,7 +22,7 @@ module.exports = {
         destination: '/dashboard',
       },
       {
-        source: '/dashboard',
+        source: '/:path((?!$).*)',
         has: [
           {
             type: 'cookie',
@@ -33,65 +33,43 @@ module.exports = {
         permanent: false,
         destination: '/',
       },
+      // super redirctions
       {
-        source: '/clients',
+        source: '/employees/:path*',
         has: [
           {
             type: 'cookie',
-            key: 'log',
-            value: 'false',
+            key: 'state',
+            value: "super_admin",
           },
         ],
         permanent: false,
-        destination: '/',
+        destination: '/dashboard',
       },
       {
-        source: '/clients/:id',
+        source: '/customers/:path*',
         has: [
           {
             type: 'cookie',
-            key: 'log',
-            value: 'false',
+            key: 'state',
+            value: "super_admin",
           },
         ],
         permanent: false,
-        destination: '/',
+        destination: '/dashboard',
       },
+      // employees redirctions
       {
-        source: '/profile',
+        source: '/:path((?!employees).*)',
         has: [
           {
             type: 'cookie',
-            key: 'log',
-            value: 'false',
+            key: 'state',
+            value: "employee",
           },
         ],
         permanent: false,
-        destination: '/',
-      },
-      {
-        source: '/staff',
-        has: [
-          {
-            type: 'cookie',
-            key: 'log',
-            value: 'false',
-          },
-        ],
-        permanent: false,
-        destination: '/',
-      },
-      {
-        source: '/add-new-client',
-        has: [
-          {
-            type: 'cookie',
-            key: 'log',
-            value: 'false',
-          },
-        ],
-        permanent: false,
-        destination: '/',
+        destination: '/employees',
       },
     ];
   },

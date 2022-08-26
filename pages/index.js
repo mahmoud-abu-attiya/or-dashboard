@@ -35,6 +35,11 @@ export default function Home() {
           <Loginform />
         </div>
       )}
+      {/* {video && ( */}
+        {/* <div className="video">
+          <iframe width="100%" height="100%" src="https://www.youtube.com/watch?v=sYD6duYAlv4" frameBorder="0" allowFullScreen></iframe>
+        </div> */}
+      {/* )} */}
     </header>
   );
 }

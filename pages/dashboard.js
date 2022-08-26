@@ -8,7 +8,6 @@ import Projects from "../components/dashboard/Projects";
 import Cookies from "js-cookie";
 
 export default function Dashboard() {
-  console.log(Cookies.get("log"));
   return (
     <Layout>
       <div className="row g-3 dashboard">
@@ -16,7 +15,7 @@ export default function Dashboard() {
           <WelcomCard />
         </div>
         <div className="col-sm-6">
-          <AddNewD />
+          <AddNewD title="Add New Client" url="/add-new-client" />
         </div>
         <div className="col-sm-8">
           <Chat />

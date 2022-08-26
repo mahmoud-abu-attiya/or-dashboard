@@ -1,12 +1,12 @@
 import Link from 'next/link'
 import React from 'react'
 
-const AddNewD = () => {
+const AddNewD = (props) => {
   return (
-    <Link href="/add-new-client">
+    <Link href={props.url}>
       <div className='car and text-center'>
         <i className="fas fa-plus"></i>
-        <h5>Add New Client</h5>
+        <h5>{props.title}</h5>
       </div>
     </Link>
   )

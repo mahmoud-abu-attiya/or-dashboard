@@ -2,13 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import logo from "../public/images/logo.png";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
 
-const Sidebar = () => {
+const ESidebar = () => {
   const router = useRouter();
-  // const [user, setUser] = useState("");
   let token = Cookies.get("token");
   const logout = () => {
     axios
@@ -17,26 +15,12 @@ const Sidebar = () => {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((res) => {
+      .then(() => {
         Cookies.remove("token");
         Cookies.set("log", "false")
         router.push("/");
       });
   };
-  // useEffect(() => {
-  //   axios
-  //     .get("https://blooming-caverns-98396.herokuapp.com/api/user", {
-  //       headers: {
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //     })
-  //     .then((res) => {
-  //       setUser(res.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, [token]);
   return (
     <aside className="round car col-lg-2" id="sidebar">
       <div className="aside_logo">
@@ -98,4 +82,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default ESidebar;

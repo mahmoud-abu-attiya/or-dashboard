@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/dist/client/router";
 import Cookies from "js-cookie";
+import parseJwt from "./jwt";
 
 
 const Loginform = () => {
@@ -21,15 +22,20 @@ const Loginform = () => {
       setSubemited(true);
       axios
         .post(
-          "https://blooming-caverns-98396.herokuapp.com/api/login",
+          "https://stormy-chamber-88256.herokuapp.com/api/login",
           USER_STATUS,
           )
         .then((res) => {
           setLoginError(false)
           console.log(res.data);
-          Cookies.set("token", res.data, { expires: 9999 })
+          Cookies.set("token", res.data.authorisation.token, { expires: 9999 })
           Cookies.set("log" , true , { expires: 9999 })
+          const parse = parseJwt(res.data.authorisation.token);
+          Cookies.set("state" , parse.user.role , { expires: 9999 })
+          // console.log(parse.user);
+          
           router.push("/dashboard")
+
         })
         .catch((err) => {
           console.log(err);

@@ -19,7 +19,7 @@ const clients = ({ clients }) => {
     <Layout>
       <div className="row row-cols-1 g-3">
         <div className="col">
-          <AddNewD />
+          <AddNewD title="Add New Client" url="/add-new-client"/>
         </div>
         <div className="col">
           <h2>Clients</h2>

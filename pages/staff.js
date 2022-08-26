@@ -5,6 +5,7 @@ import Image from "next/image";
 import avatar from "../public/images/avatar2.png";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import AddNewD from "../components/dashboard/AddNewD";
 // import ImagePrev from "../components/ImagePrev";
 
 export const getStaticProps = async () => {
@@ -20,6 +21,7 @@ export default function Staff({ staff }) {
   return (
     <div className="our-staff">
       <Layout>
+        <AddNewD title="Add New Employee" url="/add-new-employee" />
         <header className="staff">
           <h2>Our Staff</h2>
           <form>
