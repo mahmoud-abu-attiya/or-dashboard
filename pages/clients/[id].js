@@ -2,6 +2,7 @@ import Sidebar from "../../layouts/Sidebar";
 import Layout from "../../layouts/Layout";
 import { useEffect, useState } from "react";
 import AddServiceForm from "../../components/AddServiceForm";
+import Calender from "../../components/dashboard/Calender"
 
 export const getStaticPaths = async () => {
   const res = await fetch("https://jsonplaceholder.typicode.com/users");
@@ -67,52 +68,9 @@ const Details = ({ user }) => {
         </div>
         <hr />
         <div className="client_services">
-          <h4>client services</h4>
-          <a href="/service">
-            <div className="service car">
-              <div className="service_name">socail media markting</div>
-              <div className="progress">
-                <div
-                  className="progress-bar"
-                  role="progressbar"
-                  aria-label="Example with label"
-                  style={{ width: "55%" }}
-                  aria-valuenow="55"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                >
-                  55%
-                </div>
-              </div>
-            </div>
-          </a>
-          <a href="/service">
-            <div className="service car">
-              <div className="service_name">web development</div>
-              <div className="progress">
-                <div
-                  className="progress-bar"
-                  role="progressbar"
-                  aria-label="Example with label"
-                  style={{ width: "25%" }}
-                  aria-valuenow="25"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                >
-                  25%
-                </div>
-              </div>
-            </div>
-          </a>
-          <a href="/service">
-            <div className="service car service-done">
-              <div className="service_name">web development</div>
-              <div className="done">
-                Done
-                <i className="fa fa-check-circle" aria-hidden="true"></i>
-              </div>
-            </div>
-          </a>
+          <div className="car">
+            <Calender />
+          </div>
         </div>
       </div>
     </Layout>

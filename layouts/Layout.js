@@ -2,10 +2,33 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Script from "next/script";
 import Sidebar from "./Sidebar";
+import ESidebar from "../components/employee/ESidebar";
 import Overlay from "./Overlay";
 import Loading from "./Loading";
+import { useEffect, useState } from "react";
+import Cookies from "js-cookie";
 
 export default function Layout({ children }) {
+  const [admin, setAdmin] = useState(false);
+  const [employee, setEmployee] = useState(false);
+  const [customer, setCustomer] = useState(false);
+  useEffect(()=>{
+    if (Cookies.get("state") == "super_admin") {
+      setAdmin(true);
+      setCustomer(false);
+      setEmployee(false);
+    }
+    if (Cookies.get("state") == "employee") {
+      setEmployee(true);
+      setAdmin(false);
+      setCustomer(false);
+    }
+    if (Cookies.get("state") == "client") {
+      setCustomer(true);
+      setAdmin(false);
+      setEmployee(false);
+    }
+  },[])
   return (
     <>
       <Overlay />
@@ -13,11 +36,11 @@ export default function Layout({ children }) {
       <div className="container-xxl">
         <Navbar />
         <div className="content-container">
-          <Sidebar />
+          {admin ? <Sidebar /> : <></>}
+          {employee ? <ESidebar /> : <></>}
+          {customer ? <Sidebar /> : <></>}
           <main>
-            <div className="content">
-              {children}
-            </div>
+            <div className="content">{children}</div>
             <Footer />
           </main>
         </div>

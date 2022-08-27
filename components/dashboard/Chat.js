@@ -51,7 +51,7 @@ const Chat = () => {
   };
   return (
     <div className='car chart'>
-      <h2>Sales Overview</h2>
+      <h2>Posts Overview</h2>
       <small><span className="green">+10%</span> this month</small>
       <ReactApexChart
         options={data.options}
@@ -59,6 +59,7 @@ const Chat = () => {
         type="area"
         height={330}
         priority="true"
+        className="bord shadow mt-3"
       />
     </div>
   )

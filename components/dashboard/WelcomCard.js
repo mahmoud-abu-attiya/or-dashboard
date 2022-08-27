@@ -17,7 +17,7 @@ const WelcomCard = () => {
       <h3>Welcome Back,</h3>
       <Link href="/profile">
         <a>
-          <div className="user shadow-sm bord-2">
+          <div className="user shadow bord-2">
             <div className="user_image">
               <Image src={userPlaceholder} alt="user name" />
             </div>

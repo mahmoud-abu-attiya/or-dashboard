@@ -33,8 +33,7 @@ const Loginform = () => {
           const parse = parseJwt(res.data.authorisation.token);
           Cookies.set("state" , parse.user.role , { expires: 9999 })
           // console.log(parse.user);
-          
-          router.push("/dashboard")
+          location.reload()
 
         })
         .catch((err) => {

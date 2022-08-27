@@ -1,65 +1,38 @@
-// .profile{
-//   .user{
-//     display: flex;
-//     align-items: center;
-//     gap:10px;
-//     &_image{
-//       width: 20%;
-//       display: flex;
-//       align-items: center;
-//       border-radius: 50%;
-//       justify-self: center;
-//       position: relative;
-//       @media (max-width:767px) {
-//         width: 35%;
-//       }
-//       img{
-//         border: 3px solid $primary-color !important;
-//         border-radius: 50%;
-//       }
-//       i{
-//         position: absolute;
-//         top: 70%;
-//         right: 0%;
-//         background-color: #f2ba35;
-//         border-radius: 50%;
-//         width: 20%;
-//         min-width: 40px;
-//         display: flex;
-//         justify-content: center;
-//         align-items: center;
-//         aspect-ratio: 1/1;
-//         cursor: pointer;
-//       }
-//       input{
-//         display: none;
-//       }
-//     }
-//     &_info{
-//       display: flex;
-//       flex-direction: column;
-//     }
-//   }
-//   input{
-//     padding: 10px;
-//     border-radius: 10px;
-//     outline: none;
-//     margin-bottom: 10px;
-//   }
-//   .user_info_another{
-//     display: flex;
-//     flex-direction: column;
-//     margin-top: 20px;
-//     input{
-//       max-width: 300px;
-//     }
-//   }
-// }
+.Eprofile{
+  .user{
+    .head, .user_info{
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      @media (max-width: 767px) {
+        padding: 10px;
+      }
+      .img-container{
+        width: 70%;
+        border-radius: 50%;
+        position: relative;
+        aspect-ratio: 1/1;
+        overflow: hidden;
+        img{
+          border-radius: 50%;
+          border: 3px solid $primary-color !important;
+        }
+      }
+    }
+    .head{
+      align-items: center;
+      text-align: center;
+    }
+  }
+}
 .profile{
   .user{
     display: flex;
     flex-direction: column;
-    align-items: center;
+    // align-items: center;
     gap: 20px;
     &_image{
       width: 80%;
@@ -91,6 +64,7 @@
     &_info{
       display: flex;
       flex-direction: column;
+      gap: 10px;
       width: 100%;
     }
     input{

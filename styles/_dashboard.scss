@@ -31,16 +31,51 @@
       }
     }
   }
-  .percent{
+  .chart{
+    & > div{
+      background-color: rgba(255, 255, 255, 0.4);
+      padding: 10px;
+      border-radius: 10px;
+    }
+  }
+  .clients-section{
     display: flex;
     flex-direction: column;
-    a{
-      width: 100%;
-      background-color: $primary-color;
-      padding: 10px 20px;
+    gap: 20px;
+    .client-section{
+      background-color:$primary-color;
+      color: #fff;
       border-radius: 10px;
-      margin-top: auto;
-      text-align: center;
+      padding: 10px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-grow: 1;
+      cursor: pointer;
+      transition: 0.3s;
+      &:hover{
+        box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+        opacity: 0.8;
+      }
+      h5{
+        margin: 0;
+      }
+      .mark{
+        padding: 10px;
+        background-color: red;
+        color: #fff;
+        width: fit-content;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bolder;
+        justify-self: flex-end;
+        margin-left: auto;
+        aspect-ratio: 1/1;
+      }
     }
   }
   table{

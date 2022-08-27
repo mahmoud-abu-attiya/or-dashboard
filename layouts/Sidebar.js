@@ -8,35 +8,12 @@ import Cookies from "js-cookie";
 
 const Sidebar = () => {
   const router = useRouter();
-  // const [user, setUser] = useState("");
-  let token = Cookies.get("token");
+
   const logout = () => {
-    axios
-      .post("https://stormy-chamber-88256.herokuapp.com/api/logout", token, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((res) => {
-        Cookies.remove("token");
-        Cookies.set("log", "false")
-        router.push("/");
-      });
+    Cookies.remove("token");
+    Cookies.set("log", "false");
+    router.push("/");
   };
-  // useEffect(() => {
-  //   axios
-  //     .get("https://blooming-caverns-98396.herokuapp.com/api/user", {
-  //       headers: {
-  //         Authorization: `Bearer ${token}`,
-  //       },
-  //     })
-  //     .then((res) => {
-  //       setUser(res.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, [token]);
   return (
     <aside className="round car col-lg-2" id="sidebar">
       <div className="aside_logo">
@@ -56,6 +33,17 @@ const Sidebar = () => {
               </li>
             </a>
           </Link>
+          <Link href="/profile">
+            <a>
+              <li
+                className={
+                  router.pathname == "/profile" ? "active shadow-sm" : ""
+                }
+              >
+                <i className="fas fa-user"></i> Profile
+              </li>
+            </a>
+          </Link>
           <Link href="/clients">
             <a>
               <li
@@ -67,7 +55,7 @@ const Sidebar = () => {
               </li>
             </a>
           </Link>
-          <Link href="/projects">
+          {/* <Link href="/projects">
             <a>
               <li
                 className={
@@ -77,7 +65,7 @@ const Sidebar = () => {
                 <i className="fas fa-briefcase"></i> Projects
               </li>
             </a>
-          </Link>
+          </Link> */}
           <Link href="/staff">
             <a>
               <li
@@ -89,6 +77,17 @@ const Sidebar = () => {
               </li>
             </a>
           </Link>
+          {/* <Link href="/socail-media">
+            <a>
+              <li
+                className={
+                  router.pathname == "/socail-media" ? "active shadow-sm" : ""
+                }
+              >
+                <i className="fas fa-globe"></i> Social Media
+              </li>
+            </a>
+          </Link> */}
         </ul>
       </div>
       <button className="shadow-sm bord-2" onClick={() => logout()}>

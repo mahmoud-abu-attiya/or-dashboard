@@ -1,18 +1,17 @@
 import Image from "next/image";
 import Link from "next/link";
-import logo from "../public/images/logo.png";
+import logo from "../../public/images/logo.png";
 import { useRouter } from "next/router";
 import axios from "axios";
 import Cookies from "js-cookie";
 
 const ESidebar = () => {
   const router = useRouter();
-  let token = Cookies.get("token");
   const logout = () => {
     axios
-      .post("https://stormy-chamber-88256.herokuapp.com/api/logout", token, {
+      .post("https://stormy-chamber-88256.herokuapp.com/api/logout", Cookies.get("token"), {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${Cookies.get("token")}`,
         },
       })
       .then(() => {
@@ -29,40 +28,40 @@ const ESidebar = () => {
       <hr className="css-n4yg98"></hr>
       <div className="aside_links">
         <ul>
-          <Link href="/dashboard">
+          <Link href="/employees">
             <a>
               <li
                 className={
-                  router.pathname == "/dashboard" ? "active shadow-sm" : ""
+                  router.pathname == "/employees" ? "active shadow-sm" : ""
                 }
               >
                 <i className="fas fa-tachometer-alt"></i> Dashboard
               </li>
             </a>
           </Link>
-          <Link href="/clients">
+          <Link href="/employees/profile">
             <a>
               <li
                 className={
-                  router.pathname == "/clients" ? "active shadow-sm" : ""
+                  router.pathname == "/employees/profile" ? "active shadow-sm" : ""
                 }
               >
-                <i className="fas fa-users"></i> Clients
+                <i className="fas fa-user"></i> Profile
               </li>
             </a>
           </Link>
-          <Link href="/projects">
+          <Link href="/employee/mission">
             <a>
               <li
                 className={
-                  router.pathname == "/projects" ? "active shadow-sm" : ""
+                  router.pathname == "/employee/mission" ? "active shadow-sm" : ""
                 }
               >
-                <i className="fas fa-briefcase"></i> Projects
+                <i className="fas fa-briefcase"></i> Missions
               </li>
             </a>
           </Link>
-          <Link href="/staff">
+          {/* <Link href="/staff">
             <a>
               <li
                 className={
@@ -72,7 +71,7 @@ const ESidebar = () => {
                 <i className="fas fa-users-class"></i> Staff
               </li>
             </a>
-          </Link>
+          </Link> */}
         </ul>
       </div>
       <button className="shadow-sm bord-2" onClick={() => logout()}>

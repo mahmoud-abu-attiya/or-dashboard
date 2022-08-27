@@ -23,9 +23,9 @@ export default function Dashboard() {
         <div className="col-sm-4">
           <ChatPercent />
         </div>
-        <div className="col-12">
+        {/* <div className="col-12">
           <Projects />
-        </div>
+        </div> */}
       </div>
     </Layout>
   );
