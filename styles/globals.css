@@ -763,7 +763,6 @@ header.home .video {
   justify-content: space-between;
   gap: 20px;
   box-shadow: none;
-  background-color: #f2ba35;
   margin-bottom: 10px;
 }
 .client_page .client_services .car .progress {
@@ -867,4 +866,131 @@ header.home .video {
   scale: 1.1;
   background-color: rgba(0, 0, 0, 0.2);
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.116);
+}
+
+.calender-container {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+}
+.calender-container > .head {
+  text-align: center;
+  border-bottom: 1px solid rgba(204, 204, 204, 0.5);
+  padding-bottom: 10px;
+}
+.calender-container > .head button {
+  outline: none;
+  border-radius: 10px;
+  padding: 10px;
+}
+.calender-container .calender {
+  max-height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.calender-container .calender .hours {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+  text-align: end;
+}
+.calender-container .calender .hours .hour {
+  font-size: 12px;
+  height: 50px;
+  white-space: nowrap;
+}
+.calender-container .calender .days {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+.calender-container .calender .days .day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+.calender-container .calender .days .day:not(:last-child) {
+  border-right: 1px solid rgba(204, 204, 204, 0.5);
+}
+.calender-container .calender .days .day-name {
+  text-transform: capitalize;
+}
+.calender-container .calender .table {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(7, auto);
+}
+.calender-container .calender .table .cel {
+  border: 1px solid rgba(204, 204, 204, 0.5);
+  height: 50px;
+  cursor: pointer;
+  position: relative;
+}
+.calender-container .calender .table .cel .cel-detail {
+  display: none;
+  position: absolute;
+  flex-direction: column;
+  gap: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 105%;
+  background-color: #f6f6f6;
+  z-index: 9;
+  padding: 10px;
+  width: 400px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  max-height: 600px;
+  overflow-y: auto;
+  border-radius: 10px;
+  cursor: auto;
+}
+.calender-container .calender .table .cel .cel-detail::-webkit-scrollbar {
+  width: 14px;
+}
+.calender-container .calender .table .cel .cel-detail::-webkit-scrollbar-thumb {
+  border: 4px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  border-radius: 9px;
+  background-color: rgba(170, 170, 170, 0.5411764706);
+}
+.calender-container .calender .table .cel .cel-detail .head {
+  padding: 0;
+}
+.calender-container .calender .table .cel .cel-detail button {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  border: none;
+  background-color: transparent;
+  align-self: flex-end;
+}
+.calender-container .calender .table .cel .cel-detail #closePopup {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-weight: 900;
+  font-size: 20px;
+  padding: 5px 15px;
+}
+.calender-container .calender .table .cel .cel-detail textarea {
+  background-color: #fff;
+}
+.calender-container .calender .table .cel .cel-detail img {
+  border-radius: 10px;
+  padding: 0;
+}
+.calender-container .calender .table .cel .cel-detail #done {
+  color: green;
+  font-size: 25px;
+  transition: 0.3s;
+  border-radius: 10px;
+}
+.calender-container .calender .table .cel .cel-detail #done:hover {
+  background-color: rgba(0, 128, 0, 0.3098039216);
 }/*# sourceMappingURL=globals.css.map */

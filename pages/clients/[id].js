@@ -68,9 +68,7 @@ const Details = ({ user }) => {
         </div>
         <hr />
         <div className="client_services">
-          <div className="car">
             <Calender />
-          </div>
         </div>
       </div>
     </Layout>
