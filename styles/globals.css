@@ -693,12 +693,13 @@ header.home .video {
 }
 
 .profile .user {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  margin: 0;
+}
+.profile .user .col-sm-3 {
+  text-align: center;
 }
 .profile .user_image {
-  width: 80%;
+  width: 100%;
   border-radius: 50%;
   position: relative;
   aspect-ratio: 1/1;
@@ -723,12 +724,6 @@ header.home .video {
 }
 .profile .user_image input {
   display: none;
-}
-.profile .user_info {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 100%;
 }
 .profile .user input {
   padding: 10px;
@@ -883,11 +878,6 @@ header.home .video {
   border-radius: 10px;
   padding: 10px;
 }
-.calender-container .calender {
-  max-height: 500px;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
 .calender-container .calender .hours {
   display: flex;
   flex-direction: column;
@@ -935,8 +925,8 @@ header.home .video {
   position: absolute;
   flex-direction: column;
   gap: 10px;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 100%;
+  transform: translateY(-25%);
   right: 105%;
   background-color: #f6f6f6;
   z-index: 9;
@@ -980,6 +970,21 @@ header.home .video {
 }
 .calender-container .calender .table .cel .cel-detail textarea {
   background-color: #fff;
+  min-height: 100px;
+}
+.calender-container .calender .table .cel .cel-detail input[type=file] {
+  display: none;
+}
+.calender-container .calender .table .cel .cel-detail label {
+  width: 100%;
+  background-color: #fff;
+  text-align: center;
+  font-size: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.calender-container .calender .table .cel .cel-detail label div {
+  font-size: 18px;
 }
 .calender-container .calender .table .cel .cel-detail img {
   border-radius: 10px;

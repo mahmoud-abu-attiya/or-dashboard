@@ -13,9 +13,9 @@
     }
   }
   .calender {
-    max-height: 500px;
-    overflow-y: auto;
-    overflow-x: hidden;
+    // max-height: 500px;
+    // overflow-y: auto;
+    // overflow-x: hidden;
     .hours {
       display: flex;
       flex-direction: column;
@@ -62,8 +62,8 @@
           position: absolute;
           flex-direction: column;
           gap: 10px;
-          top: 50%;
-          transform: translateY(-50%);
+          top: 100%;
+          transform: translateY(-25%);
           right: 105%;
           background-color: #f6f6f6;
           z-index: 9;
@@ -105,6 +105,21 @@
           }
           textarea {
             background-color: #fff;
+            min-height: 100px;
+          }
+          input[type="file"]{
+            display: none;
+          }
+          label{
+            width: 100%;
+            background-color: #fff;
+            text-align: center;
+            font-size: 40px;
+            border-radius: 10px;
+            cursor: pointer;
+            div{
+              font-size: 18px;
+            }
           }
           img {
             border-radius: 10px;

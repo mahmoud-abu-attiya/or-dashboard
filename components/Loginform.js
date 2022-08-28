@@ -2,13 +2,21 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/dist/client/router";
 import Cookies from "js-cookie";
-import parseJwt from "./jwt";
+// import parseJwt from "./jwt";
 
 
 const Loginform = () => {
   const router = useRouter()
   const [subemited, setSubemited] = useState(false);
   const [LoginError, setLoginError] = useState(false);
+
+  function parseJwt(token) {
+    if (!token) { return; }
+    const base64Url = token.split('.')[1];
+    const base64 = base64Url.replace('-', '+').replace('_', '/');
+    return JSON.parse(window.atob(base64));
+  }
+
   useEffect(() => {
     let inpUser = document.getElementById("loginName");
     let inpPass = document.getElementById("loginPass");

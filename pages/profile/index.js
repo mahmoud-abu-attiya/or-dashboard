@@ -35,9 +35,9 @@ export default function Profile() {
   // }
   return (
     <Layout>
-      <div className="profile row g-3">
-        <div className="col-sm-6">
-          <div className="user car">
+      <div className="profile">
+        <div className="user car row g-3">
+          <div className="col-sm-3">
             <div className="user_image shadow-sm">
               <Image src={a2} alt="user name" layout="fill" priority />
               <label htmlFor="uploadImage">
@@ -48,34 +48,54 @@ export default function Profile() {
             <div>
               <i className="fa fa-star" aria-hidden="true"></i> Super User
             </div>
-            <div className="user_info">
-              <label htmlFor="profileName">Your Name</label>
-              <input
-                type="text"
-                name=""
-                defaultValue="Mahmoud Abu-Attiya"
-                id="profileName"
-                className="bord-2"
-                placeholder="Name"
-              />
-              <label htmlFor="profileEmail">Email Address</label>
-              <input
-                type="text"
-                defaultValue="mahmoud.abuattiya106@gmail.com"
-                placeholder="example@email.com"
-                className="bord-2"
-                name=""
-                id="profileEmail"
-              />
-              <label htmlFor="profilePhone">Phone Number</label>
-              <input
-                type="text"
-                defaultValue="+201020384108"
-                placeholder="+1234567890"
-                className="bord-2"
-                name=""
-                id="profilePhone"
-              />
+            <div></div>
+          </div>
+          <div className="col-sm-9">
+            <div className="user_info row">
+              <div className="col-md-6">
+                <label htmlFor="profileName">Your Name</label>
+                <input
+                  type="text"
+                  name=""
+                  defaultValue="Mahmoud Abu-Attiya"
+                  id="profileName"
+                  className="bord-2"
+                  placeholder="Name"
+                />
+              </div>
+              <div className="col-md-6">
+                <label htmlFor="profileEmail">Email Address</label>
+                <input
+                  type="text"
+                  defaultValue="mahmoud.abuattiya106@gmail.com"
+                  placeholder="example@email.com"
+                  className="bord-2"
+                  name=""
+                  id="profileEmail"
+                />
+              </div>
+              <div className="col-md-6">
+                <label htmlFor="profilePhone">Phone Number</label>
+                <input
+                  type="text"
+                  defaultValue="+201020384108"
+                  placeholder="+1234567890"
+                  className="bord-2"
+                  name=""
+                  id="profilePhone"
+                />
+              </div>
+              <div className="col-md-6">
+                <label htmlFor="profilePhone">Country</label>
+                <input
+                  type="text"
+                  defaultValue="Egypt"
+                  placeholder="Country"
+                  className="bord-2"
+                  name=""
+                  id="profileCountry"
+                />
+              </div>
             </div>
             <div className="user_btns">
               <button className="bt bt-c">cansel</button>
@@ -83,11 +103,6 @@ export default function Profile() {
                 Save
               </button>
             </div>
-          </div>
-        </div>
-        <div className="col-sm-6">
-          <div className="car">
-            <ImagePrev />
           </div>
         </div>
       </div>

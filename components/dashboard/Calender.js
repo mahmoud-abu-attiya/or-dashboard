@@ -139,8 +139,14 @@ const Calender = () => {
                         <input
                           type="file"
                           name="myImage"
+                          id="myImage"
+                          accept="image/*"
                           onChange={uploadToClient}
                         />
+                        <label htmlFor="myImage" className="bord shadow-sm">
+                          <i className="fas fa-plus"></i>
+                          <div>{createObjectURL ? "Select another image" : "Add an image"}</div>
+                          </label>
                         {createObjectURL && (
                           <img src={createObjectURL} alt="something" />
                         )}
