@@ -5,7 +5,7 @@ const Client = (props) => {
     <div className="car client">
       <div className="client_info row g-0">
         <div className="col-sm-4">
-          <Link href={"/clients/" + props.id}>
+          <Link href={props.url}>
             <a>
               <h4>
                 {props.name} <i className="fas fa-link"></i>

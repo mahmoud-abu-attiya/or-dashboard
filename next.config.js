@@ -71,6 +71,19 @@ module.exports = {
         permanent: false,
         destination: '/employees',
       },
+      // customers redirctions
+      {
+        source: '/:path((?!customers).*)',
+        has: [
+          {
+            type: 'cookie',
+            key: 'state',
+            value: "client",
+          },
+        ],
+        permanent: false,
+        destination: '/customers',
+      },
     ];
   },
 };

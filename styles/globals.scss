@@ -247,6 +247,34 @@ i.info{
   transform: translate(-50%, -50%);
   z-index: 20;
 }
+.soon{
+  position: relative;
+  overflow: hidden;
+  &::after{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    content: "This Section Comming Soon";
+    display: grid;
+    place-content: center;
+    background-color: #f7cd6ba4;
+    z-index: 9;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    font-weight: bold;
+  }
+}
+.fa-facebook-f{
+  color:#1877f2;
+}
+.fa-times{
+  color: red;
+}
+.fa-check{
+  color: green;
+}
 @import 'login';
 @import 'dashboard';
 @import 'addNewClient';
@@ -255,3 +283,4 @@ i.info{
 @import 'clientPage';
 @import 'staff';
 @import 'calender';
+@import 'social';

@@ -3,6 +3,7 @@ import Footer from "./Footer";
 import Script from "next/script";
 import Sidebar from "./Sidebar";
 import ESidebar from "../components/employee/ESidebar";
+import CSidebar from "../components/customer/CSidebar";
 import Overlay from "./Overlay";
 import Loading from "./Loading";
 import { useEffect, useState } from "react";
@@ -38,7 +39,7 @@ export default function Layout({ children }) {
         <div className="content-container">
           {admin ? <Sidebar /> : <></>}
           {employee ? <ESidebar /> : <></>}
-          {customer ? <Sidebar /> : <></>}
+          {customer ? <CSidebar /> : <></>}
           <main>
             <div className="content">{children}</div>
             <Footer />

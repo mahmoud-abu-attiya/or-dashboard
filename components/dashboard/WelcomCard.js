@@ -3,19 +3,20 @@ import userPlaceholder from "../../public/images/user-placeholder.png";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
+import jwt_decode from "jwt-decode"
 
 const WelcomCard = () => {
   const [user, setUser] = useState("");
 
-  function parseJwt(token) {
-    if (!token) { return; }
-    const base64Url = token.split('.')[1];
-    const base64 = base64Url.replace('-', '+').replace('_', '/');
-    return JSON.parse(window.atob(base64));
-  }
+  // function parseJwt(token) {
+  //   if (!token) { return; }
+  //   const base64Url = token.split('.')[1];
+  //   const base64 = base64Url.replace('-', '+').replace('_', '/');
+  //   return JSON.parse(window.atob(base64));
+  // }
 
   useEffect(() => {
-    const parseToken = parseJwt(Cookies.get("token"))
+    const parseToken = jwt_decode(Cookies.get("token"))
     setUser(parseToken.user);
   }, []);
   return (

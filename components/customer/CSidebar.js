@@ -20,47 +20,36 @@ const ESidebar = () => {
       <hr className="css-n4yg98"></hr>
       <div className="aside_links">
         <ul>
-          <Link href="/employees">
+          <Link href="/customers">
             <a>
               <li
                 className={
-                  router.pathname == "/employees" ? "active shadow-sm" : ""
+                  router.pathname == "/customers" ? "active shadow-sm" : ""
                 }
               >
                 <i className="fas fa-tachometer-alt"></i> Dashboard
               </li>
             </a>
           </Link>
-          <Link href="/employees/profile">
+          <Link href="/customers/profile">
             <a>
               <li
                 className={
-                  router.pathname == "/employees/profile" ? "active shadow-sm" : ""
+                  router.pathname == "/customers/profile" ? "active shadow-sm" : ""
                 }
               >
                 <i className="fas fa-user"></i> Profile
               </li>
             </a>
           </Link>
-          <Link href="/employees/mission">
+          <Link href="/customers/socialMedia">
             <a>
               <li
                 className={
-                  router.pathname == "/employees/mission" ? "active shadow-sm" : ""
+                  router.pathname == "/customers/socialMedia" ? "active shadow-sm" : ""
                 }
               >
-                <i className="fas fa-briefcase"></i> Missions
-              </li>
-            </a>
-          </Link>
-          <Link href="/employees/clients">
-            <a>
-              <li
-                className={
-                  router.pathname == "/employees/clients" ? "active shadow-sm" : ""
-                }
-              >
-                <i className="fas fa-users"></i> Clients
+                <i className="fas fa-globe"></i> Social
               </li>
             </a>
           </Link>

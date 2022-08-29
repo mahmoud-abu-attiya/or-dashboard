@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/dist/client/router";
 import Cookies from "js-cookie";
 // import parseJwt from "./jwt";
+import jwt_decode from "jwt-decode";
 
 
 const Loginform = () => {
@@ -10,12 +11,12 @@ const Loginform = () => {
   const [subemited, setSubemited] = useState(false);
   const [LoginError, setLoginError] = useState(false);
 
-  function parseJwt(token) {
-    if (!token) { return; }
-    const base64Url = token.split('.')[1];
-    const base64 = base64Url.replace('-', '+').replace('_', '/');
-    return JSON.parse(window.atob(base64));
-  }
+  // function parseJwt(token) {
+  //   if (!token) { return; }
+  //   const base64Url = token.split('.')[1];
+  //   const base64 = base64Url.replace('-', '+').replace('_', '/');
+  //   return JSON.parse(window.atob(base64));
+  // }
 
   useEffect(() => {
     let inpUser = document.getElementById("loginName");
@@ -38,9 +39,9 @@ const Loginform = () => {
           console.log(res.data);
           Cookies.set("token", res.data.authorisation.token, { expires: 9999 })
           Cookies.set("log" , true , { expires: 9999 })
-          const parse = parseJwt(res.data.authorisation.token);
+          const parse = jwt_decode(res.data.authorisation.token);
           Cookies.set("state" , parse.user.role , { expires: 9999 })
-          // console.log(parse.user);
+          // console.log(parse.user.role);
           location.reload()
 
         })

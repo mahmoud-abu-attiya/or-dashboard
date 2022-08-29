@@ -1,6 +1,10 @@
-import Layout from "../../layouts/Layout";
-import AddNewD from "../../components/dashboard/AddNewD";
-import Client from "../../components/Client";
+// import Sidebar from "../../layouts/Sidebar";
+import Layout from "../../../layouts/Layout";
+import AddNewD from "../../../components/dashboard/AddNewD";
+import Client from "../../../components/Client";
+// import { useEffect, useState } from "react";
+// import axios from "axios";
+// import Link from "next/link";
 
 export const getStaticProps = async () => {
   const res = await fetch("https://jsonplaceholder.typicode.com/users");
@@ -23,10 +27,7 @@ const clients = ({ clients }) => {
             {clients.map((client) => {
               return (
                 <div key={client.id} className="col" loading="lazy">
-                  <Client id={client.id} name={client.name} url={"/clients/" + client.id} />
-                  {/* <Link href={"/clients/" + client.id}>
-                          <h3>{client.name}</h3>
-                        </Link> */}
+                  <Client id={client.id} name={client.name} url={"/employees/clients/" + client.id} />
                 </div>
               );
             })}

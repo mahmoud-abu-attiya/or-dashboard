@@ -35,7 +35,7 @@ export default function Profile() {
       <div className="profile">
         <div className="user car row g-3">
           <div className="col-sm-3">
-            <div className="user_image">
+            <div className="user_image shadow-sm">
               {/* {createObjectURL ? <img src={createObjectURL} alt="" /> : <Image src={a2} alt="user name" />}
               <label htmlFor="uploadImage">
                 <i className="fas fa-edit bord-2"></i>
@@ -55,7 +55,7 @@ export default function Profile() {
                 onChange={uploadToClient}
               />
               <label htmlFor="myImage" className="bord shadow-sm">
-                <i className="fas fa-edit"></i>
+                <i className="fas fa-plus"></i>
               </label>
               {createObjectURL ? <img src={createObjectURL} alt="something" /> : <Image src={a2} alt="hi" />}
             </div>
@@ -73,7 +73,7 @@ export default function Profile() {
                   name=""
                   defaultValue={name}
                   id="profileName"
-                  className="bord"
+                  className="bord-2"
                   placeholder="Name"
                 />
               </div>
@@ -83,7 +83,7 @@ export default function Profile() {
                   type="text"
                   defaultValue={email}
                   placeholder="example@email.com"
-                  className="bord"
+                  className="bord-2"
                   name=""
                   id="profileEmail"
                 />
@@ -94,7 +94,7 @@ export default function Profile() {
                   type="text"
                   defaultValue={phone}
                   placeholder="+1234567890"
-                  className="bord"
+                  className="bord-2"
                   name=""
                   id="profilePhone"
                 />
@@ -105,7 +105,7 @@ export default function Profile() {
                   type="text"
                   defaultValue={country}
                   placeholder="Country"
-                  className="bord"
+                  className="bord-2"
                   name=""
                   id="profileCountry"
                 />
