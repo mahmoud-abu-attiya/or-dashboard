@@ -11,6 +11,7 @@ const Sidebar = () => {
 
   const logout = () => {
     Cookies.remove("token");
+    Cookies.remove("state");
     Cookies.set("log", "false");
     router.push("/");
   };

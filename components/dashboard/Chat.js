@@ -57,6 +57,7 @@ const Chat = () => {
         options={data.options}
         series={data.series}
         type="area"
+        width={"100%"}
         height={330}
         priority="true"
         className="bord shadow mt-3"

@@ -42,25 +42,14 @@ const ESidebar = () => {
               </li>
             </a>
           </Link>
-          <Link href="/employees/mission">
+          <Link href="/employees/missions">
             <a>
               <li
                 className={
-                  router.pathname == "/employees/mission" ? "active shadow-sm" : ""
+                  router.pathname == "/employees/missions" ? "active shadow-sm" : ""
                 }
               >
                 <i className="fas fa-briefcase"></i> Missions
-              </li>
-            </a>
-          </Link>
-          <Link href="/employees/clients">
-            <a>
-              <li
-                className={
-                  router.pathname == "/employees/clients" ? "active shadow-sm" : ""
-                }
-              >
-                <i className="fas fa-users"></i> Clients
               </li>
             </a>
           </Link>

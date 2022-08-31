@@ -18,6 +18,7 @@ const WelcomCard = () => {
   useEffect(() => {
     const parseToken = jwt_decode(Cookies.get("token"))
     setUser(parseToken.user);
+    console.log(parseToken.user);
   }, []);
   return (
     <div className="car w-card">

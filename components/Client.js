@@ -16,18 +16,19 @@ const Client = (props) => {
         <div className="col-sm-4 col-6">
           <a href="tel:+201020384108">
             <i className="fa fa-phone info" aria-hidden="true"></i>{" "}
-            +201020384108
+            {props.phone}
           </a>
         </div>
         <div className="col-sm-4 col-6">
           <a href="mailto:mahmoud@email.com">
-            <i className="fas fa-at info"></i> mahmoud@email.com
+            <i className="fas fa-at info"></i>
+            {props.email}
           </a>
         </div>
       </div>
       <hr />
       <div className="services">
-        <div className="service car">
+        {/* <div className="service car">
           <div className="service_name">
             <i
               className="fab fa-facebook-f"
@@ -46,7 +47,25 @@ const Client = (props) => {
             page name
           </div>
           <div className="text-secondary">next (post/story): <strong>20/11/2022</strong></div>
-        </div>
+        </div> */}
+        { props.services ? props.services.map((service) => {
+          return (
+            <div className="service car" key={service.id}>
+              <div className="service_name">
+                <i
+                  className="fab fa-facebook-f"
+                  style={{ color: "#1877f2", marginRight: "5px" }}
+                ></i>
+                page name
+              </div>
+              <div className="text-secondary">
+                next (post/story): <strong>20/11/2022</strong>
+              </div>
+            </div>
+          );
+        }) : (
+          <div className="service car">No Services for this client yet.</div>
+        )}
       </div>
     </div>
   );

@@ -5,38 +5,24 @@ import Image from "next/image";
 import a2 from "../../public/images/avatar5.png";
 import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
+import axios from "axios";
 
-export const getStaticPaths = async () => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/users");
-  const data = await res.json();
-  const paths = data.map((user) => {
-    return {
-      params: { id: user.id.toString() },
-    };
-  });
-
-  return {
-    paths,
-    fallback: false,
-  };
-};
-
-export const getStaticProps = async (context) => {
-  const id = context.params.id;
-  const res = await fetch("https://jsonplaceholder.typicode.com/users/" + id);
-  const data = await res.json();
-
-  return {
-    props: { user: data },
-  };
-};
-
-export default function Dashboard({ user }) {
-  const [admin, setAdmin] = useState(false);
+export default function EmployeeProfile() {
+  const [user, setuser] = useState({});
   useEffect(() => {
-    if (Cookies.get("state") == "super_admin") {
-      setAdmin(true)
-    }
+    const id = window.location.pathname.slice(9);
+    axios.get(
+      "https://stormy-chamber-88256.herokuapp.com/api/get/employee?id=" + id,
+      {
+        headers: {
+          Authorization: `Bearer ${Cookies.get("token")}`,
+        },
+      }
+    ).then((res) => {
+      setuser(res.data)
+    }).catch((err) =>{
+      console.log(err);
+    })
   }, []);
   return (
     <Layout>
@@ -50,7 +36,7 @@ export default function Dashboard({ user }) {
                 </div>
                 <div>
                   <h1>{user.name}</h1>
-                  <i className="fa fa-star" aria-hidden="true"></i> Super User
+                  <i className="fas fa-user-astronaut"></i>Employeee
                 </div>
               </div>
             </div>
@@ -66,25 +52,22 @@ export default function Dashboard({ user }) {
                   {user.email}
                 </a>
                 <div className="age">
-                  <strong>Age:</strong> 20 Y
+                  <strong>Age:</strong> {user.age}
                 </div>
                 <div className="country">
-                  <strong>From</strong> Egypt
+                  <strong>From</strong> {user.country}
                 </div>
                 <div className="start-date">
-                  <strong>Start date:</strong> 20/5/2022
+                  <strong>Start date:</strong> {user.start_date.slice(0,10)}
                 </div>
                 <hr />
                 <h3>permissions</h3>
                 <div className="permissions">
-                  <i className="fa fa-globe info"></i> Social Media
+                  <i className="fa fa-globe info"></i> {user.category}
                 </div>
-                {admin && (
-                  <button className="bt">
-                    <i className="fas fa-edit"></i>{" "}
-                    Edit permissions
+                  <button className="bt" disabled title="It will able soon.">
+                    <i className="fas fa-edit"></i> Edit permissions
                   </button>
-                )}
               </div>
             </div>
           </div>

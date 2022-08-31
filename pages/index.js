@@ -1,8 +1,10 @@
 import Loginform from "../components/Loginform";
 import { useState, useEffect } from "react";
+import YoutubeVideo from "../components/YoutubeVideo";
 
 export default function Home() {
   const [mobile, setmobile] = useState(false);
+  const [video, setVideo] = useState(false);
 
   useEffect(() => {
     const updateLayouts = () => {
@@ -22,7 +24,7 @@ export default function Home() {
         <div>
           <h1>POWERFUL TECHNOLOGY MADE SIMPLE</h1>
           <p>Manage & follow your work steps</p>
-          <button className="shadow">
+          <button className="shadow" onClick={()=>setVideo(true)}>
             <i className="fal fa-play-circle"></i> Watch This
           </button>
           {mobile ? <Loginform /> : <></>}
@@ -35,11 +37,12 @@ export default function Home() {
           <Loginform />
         </div>
       )}
-      {/* {video && ( */}
-        {/* <div className="video">
-          <iframe width="100%" height="100%" src="https://www.youtube.com/watch?v=sYD6duYAlv4" frameBorder="0" allowFullScreen></iframe>
-        </div> */}
-      {/* )} */}
+        {video && ( 
+        <div className="video">
+          <button className="cansel" onClick={()=>setVideo(false)}><i className="fas fa-times"></i></button>
+          <YoutubeVideo />
+        </div>
+        )}
     </header>
   );
 }

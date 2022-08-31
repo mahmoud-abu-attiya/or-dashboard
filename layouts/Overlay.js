@@ -3,7 +3,7 @@ import { useEffect } from "react"
 const Overlay = () => {
   useEffect(() => {
     let overlay = document.getElementById("overlay")
-    let aside = document.getElementById("sidebar")
+    let aside = document.querySelector("aside")
     // let add_service_model = document.querySelector(".add_service_model")
 
     overlay.addEventListener("click", ()=>{

@@ -31,81 +31,60 @@ export default function Profile() {
   return (
     <Layout>
       <div className="profile">
-        <div className="user car row g-3">
-          <div className="col-sm-3">
-            <div className="user_image shadow-sm">
+        <div className="user car">
+          <div className="user_info row g-3">
+            <div className="col-md-6">
+              <label htmlFor="profileName">Your Name</label>
               <input
-                type="file"
-                name="myImage"
-                id="myImage"
-                accept="image/*"
-                onChange={uploadToClient}
+                type="text"
+                name=""
+                defaultValue={name}
+                id="profileName"
+                className="bord-2"
+                placeholder="Name"
               />
-              <label htmlFor="myImage" className="bord shadow-sm">
-                <i className="fas fa-plus"></i>
-              </label>
-              {createObjectURL ? <img src={createObjectURL} alt="something" /> : <Image src={a2} alt="hi" />}
             </div>
-            <div>
-              <i className="fa fa-star" aria-hidden="true"></i> Super User
+            <div className="col-md-6">
+              <label htmlFor="profileEmail">Email Address</label>
+              <input
+                type="text"
+                defaultValue={email}
+                placeholder="example@email.com"
+                className="bord-2"
+                name=""
+                id="profileEmail"
+              />
             </div>
-            <div></div>
+            <div className="col-md-6">
+              <label htmlFor="profilePhone">Phone Number</label>
+              <input
+                type="text"
+                defaultValue={phone}
+                placeholder="+1234567890"
+                className="bord-2"
+                name=""
+                id="profilePhone"
+              />
+            </div>
+            <div className="col-md-6">
+              <label htmlFor="profilePhone">Country</label>
+              <input
+                type="text"
+                defaultValue={country}
+                placeholder="Country"
+                className="bord-2"
+                name=""
+                id="profileCountry"
+              />
+            </div>
           </div>
-          <div className="col-sm-9">
-            <div className="user_info row g-3">
-              <div className="col-md-6">
-                <label htmlFor="profileName">Your Name</label>
-                <input
-                  type="text"
-                  name=""
-                  defaultValue={name}
-                  id="profileName"
-                  className="bord-2"
-                  placeholder="Name"
-                />
-              </div>
-              <div className="col-md-6">
-                <label htmlFor="profileEmail">Email Address</label>
-                <input
-                  type="text"
-                  defaultValue={email}
-                  placeholder="example@email.com"
-                  className="bord-2"
-                  name=""
-                  id="profileEmail"
-                />
-              </div>
-              <div className="col-md-6">
-                <label htmlFor="profilePhone">Phone Number</label>
-                <input
-                  type="text"
-                  defaultValue={phone}
-                  placeholder="+1234567890"
-                  className="bord-2"
-                  name=""
-                  id="profilePhone"
-                />
-              </div>
-              <div className="col-md-6">
-                <label htmlFor="profilePhone">Country</label>
-                <input
-                  type="text"
-                  defaultValue={country}
-                  placeholder="Country"
-                  className="bord-2"
-                  name=""
-                  id="profileCountry"
-                />
-              </div>
-            </div>
-            <div className="user_btns">
-              <button disabled={change ? null : 'disabled' } className="bt bt-c">
-                cansel
-              </button>
-              <button disabled={change ? null :'disabled' } className="bt">
-                Save
-              </button>
-            </div>
+          <div className="user_btns">
+            <button disabled={change ? null : "disabled"} className="bt bt-c">
+              cansel
+            </button>
+            <button disabled={change ? null : "disabled"} className="bt">
+              Save
+            </button>
           </div>
         </div>
       </div>

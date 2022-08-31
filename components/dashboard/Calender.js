@@ -1,11 +1,31 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import moment from "moment";
 import img from "../../public/images/index-bg.jpg";
 
 const Calender = () => {
   const [image, setImage] = useState(null);
   const [createObjectURL, setCreateObjectURL] = useState(null);
+  // const [dayName, setDayName] = useState("");
+  // const [dayDate, setDayDate] = useState("");
+  const [days, setDays] = useState([]);
+  ////////////////////////////////////////////////////
+  useEffect(() => {
+    var startOfWeek = moment().startOf("isoWeek");
+    var endOfWeek = moment().endOf("isoWeek");
+
+    var day = startOfWeek;
+
+    while (day <= endOfWeek) {
+      days.push(day.toDate());
+      day = day.clone().add(1, "d");
+    }
+    setDays(days);
+    // console.log(days);
+  }, [days]);
+  // console.log(days);
+  ////////////////////////////////////////////////////
 
   const uploadToClient = (event) => {
     if (event.target.files && event.target.files[0]) {
@@ -44,15 +64,37 @@ const Calender = () => {
   useEffect(() => {
     let cels = document.querySelectorAll(".cel");
     // let closePopup = document.getElementById("closePopup");
-    cels.forEach((cel) => {
+    cels.forEach((cel, index) => {
       cel.addEventListener("click", (e) => {
+        let done = cel.querySelector(".cel-detail #done");
+        let postContent = cel.querySelector(".cel-detail textarea");
+        done.onclick = () => {
+          cel.querySelector(".cel-detail").style.display = "none";
+          if (cel.childNodes.length  < 2) {
+            let post = document.createElement("div");
+            post.classList.add("post-content");
+            post.innerText = postContent.value;
+            cel.appendChild(post);
+          } else {
+            cel.querySelector(".post-content").innerText = postContent.value
+            // e.target.addEventListener("click", ()=>{
+            //   cel.querySelector(".cel-detail").style.display = "flex"
+            // })
+          }
+        };
+        console.log((index % 7) + 1);
+
+        let kes = Object.values(cels);
+        // console.log(kes.indexOf(cel) % 12);
+
         let celDetail = e.target.querySelector(".cel-detail");
         if (e.target == cel) {
-          cels.forEach(
-            (c) => (c.querySelector(".cel-detail").style.display = "none")
-          );
+          cels.forEach((c) => {
+            c.querySelector(".cel-detail").style.display = "none";
+          });
           celDetail.style.display = "flex";
-        }
+          cel.querySelector(".cel-detail textarea").focus();
+        } 
       });
     });
     // const close = (e) => {
@@ -63,10 +105,10 @@ const Calender = () => {
   return (
     <div className="calender-container bord shadow-sm">
       <div className="head">
-        <button className="bord shadow-sm">
+        <button className="bord shadow-sm" disabled>
           <i className="fas fa-angle-left"></i> Prev
         </button>
-        <button className="bord shadow-sm">
+        <button className="bord shadow-sm" disabled>
           Next <i className="fas fa-angle-right"></i>
         </button>
       </div>
@@ -75,34 +117,16 @@ const Calender = () => {
           <div className="col-1"></div>
           <div className="col-11">
             <div className="days">
-              <div className="day">
-                <div className="day-name">SUN</div>
-                <div className="day-date">28</div>
-              </div>
-              <div className="day">
-                <div className="day-name">SUN</div>
-                <div className="day-date">28</div>
-              </div>
-              <div className="day">
-                <div className="day-name">SUN</div>
-                <div className="day-date">28</div>
-              </div>
-              <div className="day">
-                <div className="day-name">SUN</div>
-                <div className="day-date">28</div>
-              </div>
-              <div className="day">
-                <div className="day-name">SUN</div>
-                <div className="day-date">28</div>
-              </div>
-              <div className="day">
-                <div className="day-name">SUN</div>
-                <div className="day-date">28</div>
-              </div>
-              <div className="day">
-                <div className="day-name">SUN</div>
-                <div className="day-date">28</div>
-              </div>
+              {days.map((day, index) => {
+                return (
+                  <div className="day" key={index}>
+                    <div className="day-name">{day.toString().slice(0, 4)}</div>
+                    <div className="day-date">
+                      {day.toString().slice(8, 10)}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
@@ -128,7 +152,9 @@ const Calender = () => {
                       <div className="cel-detail shadow-lg bord">
                         <button
                           id="closePopup"
-                          onClick={(e) => e.target.parentElement.style.display = "none"}
+                          onClick={(e) =>
+                            (e.target.parentElement.style.display = "none")
+                          }
                         >
                           x
                         </button>
@@ -145,8 +171,12 @@ const Calender = () => {
                         />
                         <label htmlFor="myImage" className="bord shadow-sm">
                           <i className="fas fa-plus"></i>
-                          <div>{createObjectURL ? "Select another image" : "Add an image"}</div>
-                          </label>
+                          <div>
+                            {createObjectURL
+                              ? "Select another image"
+                              : "Add an image"}
+                          </div>
+                        </label>
                         {createObjectURL && (
                           <img src={createObjectURL} alt="something" />
                         )}

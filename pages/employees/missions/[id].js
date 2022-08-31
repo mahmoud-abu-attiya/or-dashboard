@@ -3,6 +3,9 @@ import Layout from "../../../layouts/Layout";
 import { useEffect, useState } from "react";
 import AddServiceForm from "../../../components/AddServiceForm";
 import Calender from "../../../components/dashboard/Calender"
+import jwtDecode from "jwt-decode"
+import Cookies from "js-cookie"
+
 
 export const getStaticPaths = async () => {
   const res = await fetch("https://jsonplaceholder.typicode.com/users");
@@ -29,9 +32,17 @@ export const getStaticProps = async (context) => {
   };
 };
 
+
 const Details = ({ user }) => {
   const [addServices, setAddServices] = useState(false);
+  const [users, setusers] = useState([]);
   useEffect(() => {
+    const parse = jwtDecode(Cookies.get("token"))
+    const data = parse.user;
+    setusers(data.services)
+    console.log(data.services)
+    
+    ////////////////////////////////////
     let overlay = document.getElementById("overlay");
     let addServiceBtn = document.querySelector(".add-service");
     addServiceBtn.onclick = () => {
@@ -41,6 +52,7 @@ const Details = ({ user }) => {
     overlay.onclick = () => {
       setAddServices(false);
     };
+    ////////////////////////////////////
   }, []);
   return (
     <Layout>
