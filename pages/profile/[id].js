@@ -10,7 +10,7 @@ import axios from "axios";
 export default function EmployeeProfile() {
   const [user, setuser] = useState({});
   useEffect(() => {
-    const id = window.location.pathname.slice(9);
+    const id = window.location.pathname.toString().slice(9);
     axios.get(
       "https://stormy-chamber-88256.herokuapp.com/api/get/employee?id=" + id,
       {
