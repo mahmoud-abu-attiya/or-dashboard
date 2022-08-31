@@ -387,6 +387,15 @@ header.home form {
   width: 60%;
   max-width: 700px;
 }
+header.home form .label-pass {
+  position: relative;
+}
+header.home form .label-pass .eye {
+  position: absolute;
+  top: 37px;
+  right: 10px;
+  cursor: pointer;
+}
 header.home form input,
 header.home form button {
   width: 100%;

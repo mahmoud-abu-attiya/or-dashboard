@@ -10,6 +10,7 @@ const Loginform = () => {
   const router = useRouter()
   const [subemited, setSubemited] = useState(false);
   const [LoginError, setLoginError] = useState(false);
+  const [showPass, setShowPass] = useState(false)
 
   // function parseJwt(token) {
   //   if (!token) { return; }
@@ -51,6 +52,10 @@ const Loginform = () => {
           setLoginError(true);
         })
     }
+    let showpass = document.querySelector(".label-pass .eye")
+    showpass.addEventListener("click", () => {
+      setShowPass(current => !current);
+    })
     loginForm.onsubmit = (e) => {
       e.preventDefault();
       formSubmit();
@@ -75,9 +80,14 @@ const Loginform = () => {
         />
       </div>
       <div>
-        <label htmlFor="loginPass">Password</label>
+        <label htmlFor="loginPass" className="label-pass">
+          Password
+          <span className="eye">
+            {showPass ? <i className="fas fa-eye"></i> : <i className="fas fa-eye-slash"></i>}
+          </span>
+          </label>
         <input
-          type="text"
+          type={showPass ? "text" : "password"}
           name="password"
           id="loginPass"
           className="bg-light bord"
