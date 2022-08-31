@@ -9,8 +9,9 @@ import axios from "axios";
 
 export default function EmployeeProfile() {
   const [user, setuser] = useState({});
+  const [startDate, setStartDate] = useState("")
   useEffect(() => {
-    const id = window.location.pathname.toString().slice(9);
+    const id = window.location.pathname.slice(9);
     axios.get(
       "https://stormy-chamber-88256.herokuapp.com/api/get/employee?id=" + id,
       {
@@ -20,6 +21,7 @@ export default function EmployeeProfile() {
       }
     ).then((res) => {
       setuser(res.data)
+      setStartDate(res.data.start_date.toString().slice(0 , 10))
     }).catch((err) =>{
       console.log(err);
     })
@@ -58,7 +60,7 @@ export default function EmployeeProfile() {
                   <strong>From</strong> {user.country}
                 </div>
                 <div className="start-date">
-                  <strong>Start date:</strong> {user.start_date.slice(0,10)}
+                  <strong>Start date:</strong> {startDate}
                 </div>
                 <hr />
                 <h3>permissions</h3>
