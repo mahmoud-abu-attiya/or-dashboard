@@ -11,8 +11,6 @@ export default function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     let token = Cookies.get("token")
-
-    
     if (token) {
       const refresh = () => {
         axios.post("https://stormy-chamber-88256.herokuapp.com/api/refresh",token, {
@@ -20,14 +18,12 @@ export default function MyApp({ Component, pageProps }) {
             Authorization: `Bearer ${Cookies.get("token")}`,
           },
         }).then((res) => {
-          Cookies.set(res.data.authorization.token)
+          Cookies.set("token", res.data.authorization.token)
         }).catch((err) => {
           console.log(err);
         })
       }
-  
       refresh();
-  
       setTimeout(() => {
         refresh();
       }, 10*60*1000);

@@ -4,6 +4,7 @@ import AddServiceForm from "../../components/AddServiceForm";
 import Calender from "../../components/dashboard/Calender";
 import axios from 'axios'
 import Cookies from "js-cookie";
+import Page from "../../components/employee/Page";
 
 const Details = () => {
   const [addServices, setAddServices] = useState(false);
@@ -21,6 +22,7 @@ const Details = () => {
     ).then((res) => {
       setuser(res.data)
       setServices(res.data.services)
+      console.log(res.data.services)
     }).catch((err) =>{
       console.log(err);
     })
@@ -63,7 +65,8 @@ const Details = () => {
             {services ? 
             services.map((service) => {
               return(
-                <Calender key={service.id}/>
+                // <Calender key={service.service_id}/>
+                <Page key={service.service_id} />
               )
             }) : (
               <div className="car">There is no</div>

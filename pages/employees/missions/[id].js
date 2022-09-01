@@ -1,48 +1,31 @@
-// import Sidebar from "../../../layouts/Sidebar";
 import Layout from "../../../layouts/Layout";
 import { useEffect, useState } from "react";
 import AddServiceForm from "../../../components/AddServiceForm";
-import Calender from "../../../components/dashboard/Calender"
-import jwtDecode from "jwt-decode"
-import Cookies from "js-cookie"
+import Calender from "../../../components/dashboard/Calender";
+import axios from 'axios'
+import Cookies from "js-cookie";
+import Page from "../../../components/employee/Page";
 
-
-export const getStaticPaths = async () => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/users");
-  const data = await res.json();
-  const paths = data.map((user) => {
-    return {
-      params: { id: user.id.toString() },
-    };
-  });
-
-  return {
-    paths,
-    fallback: false,
-  };
-};
-
-export const getStaticProps = async (context) => {
-  const id = context.params.id;
-  const res = await fetch("https://jsonplaceholder.typicode.com/users/" + id);
-  const data = await res.json();
-
-  return {
-    props: { user: data },
-  };
-};
-
-
-const Details = ({ user }) => {
+const Details = () => {
   const [addServices, setAddServices] = useState(false);
-  const [users, setusers] = useState([]);
+  const [user, setuser] = useState({});
+  const [services, setServices] = useState()
   useEffect(() => {
-    const parse = jwtDecode(Cookies.get("token"))
-    const data = parse.user;
-    setusers(data.services)
-    console.log(data.services)
-    
-    ////////////////////////////////////
+    const id = window.location.pathname.slice(20);
+    axios.get(
+      "https://stormy-chamber-88256.herokuapp.com/api/get/client?id=" + id,
+      {
+        headers: {
+          Authorization: `Bearer ${Cookies.get("token")}`,
+        },
+      }
+    ).then((res) => {
+      setuser(res.data)
+      setServices(res.data.services)
+      console.log(res.data.services)
+    }).catch((err) =>{
+      console.log(err);
+    })
     let overlay = document.getElementById("overlay");
     let addServiceBtn = document.querySelector(".add-service");
     addServiceBtn.onclick = () => {
@@ -52,7 +35,6 @@ const Details = ({ user }) => {
     overlay.onclick = () => {
       setAddServices(false);
     };
-    ////////////////////////////////////
   }, []);
   return (
     <Layout>
@@ -80,7 +62,16 @@ const Details = ({ user }) => {
         </div>
         <hr />
         <div className="client_services">
-            <Calender />
+            {services ? 
+            services.map((service) => {
+              return(
+                // <Calender key={service.service_id}/>
+                <Page key={service.service_id} />
+              )
+            }) : (
+              <div className="car">There is no services.</div>
+            )
+            }
         </div>
       </div>
     </Layout>

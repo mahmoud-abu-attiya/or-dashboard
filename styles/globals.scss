@@ -264,6 +264,7 @@ i.info{
     transform: translate(-50%, -50%);
     font-size: 30px;
     font-weight: bold;
+    text-align: center;
   }
 }
 .fa-facebook-f{
@@ -284,3 +285,4 @@ i.info{
 @import 'staff';
 @import 'calender';
 @import 'social';
+@import 'page';

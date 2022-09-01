@@ -9,22 +9,16 @@ const Calender = () => {
   const [createObjectURL, setCreateObjectURL] = useState(null);
   // const [dayName, setDayName] = useState("");
   // const [dayDate, setDayDate] = useState("");
-  const [days, setDays] = useState([]);
+  const [days, setDays] = useState([])
   ////////////////////////////////////////////////////
-  useEffect(() => {
-    var startOfWeek = moment().startOf("isoWeek");
-    var endOfWeek = moment().endOf("isoWeek");
+    let today = new Date()
+    let startDate = moment(today);
+    let endDate = moment(today.setDate(today.getDate() + 7));
 
-    var day = startOfWeek;
-
-    while (day <= endOfWeek) {
-      days.push(day.toDate());
-      day = day.clone().add(1, "d");
+    for (var m = moment(startDate); m.isBefore(endDate); m.add(1, 'days')) {
+        days.push(m.format('ddd DD'))
+        console.log(days);
     }
-    setDays(days);
-    // console.log(days);
-  }, [days]);
-  // console.log(days);
   ////////////////////////////////////////////////////
 
   const uploadToClient = (event) => {
@@ -120,9 +114,9 @@ const Calender = () => {
               {days.map((day, index) => {
                 return (
                   <div className="day" key={index}>
-                    <div className="day-name">{day.toString().slice(0, 4)}</div>
+                    <div className="day-name">{day.toString().slice(0, 3)}</div>
                     <div className="day-date">
-                      {day.toString().slice(8, 10)}
+                      {day.toString().slice(4)}
                     </div>
                   </div>
                 );

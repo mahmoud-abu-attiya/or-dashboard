@@ -101,7 +101,7 @@ import Link from "next/link";
 
 const ChatPercent = () => {
   return (
-    <div className="car clients-section">
+    <div className="car clients-section soon">
       <h3>Clients Notes</h3>
       <Link href="/clients">
         <div className="client-section shadow-sm bord">

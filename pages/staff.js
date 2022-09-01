@@ -73,7 +73,7 @@ export default function Staff() {
           </form>
         </header>
         <div className="row g-3">
-          {staff ? staff
+          {staff.length !== 0 ? staff
             .filter((item) =>
               item.name.toLowerCase().includes(query.toLowerCase())
             )

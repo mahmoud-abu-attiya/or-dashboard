@@ -75,6 +75,7 @@ export default function Profile() {
                   id="profileName"
                   className="bord-2"
                   placeholder="Name"
+                  disabled
                 />
               </div>
               <div className="col-md-6">
@@ -86,6 +87,7 @@ export default function Profile() {
                   className="bord-2"
                   name=""
                   id="profileEmail"
+                  disabled
                 />
               </div>
               <div className="col-md-6">
@@ -97,6 +99,7 @@ export default function Profile() {
                   className="bord-2"
                   name=""
                   id="profilePhone"
+                  disabled
                 />
               </div>
               <div className="col-md-6">
@@ -108,6 +111,7 @@ export default function Profile() {
                   className="bord-2"
                   name=""
                   id="profileCountry"
+                  disabled
                 />
               </div>
             </div>

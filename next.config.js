@@ -7,6 +7,9 @@ const nextConfig = {
 module.exports = nextConfig;
 
 module.exports = {
+  images: {
+    domains: ['instagram.fcai20-6.fna.fbcdn.net'],
+  },
   async redirects() {
     return [
       {

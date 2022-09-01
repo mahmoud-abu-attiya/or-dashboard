@@ -1,6 +1,6 @@
 import Layout from "../../layouts/Layout";
 import Cookies from "js-cookie";
-import WelcomeCard from "../../components/dashboard/WelcomCard"
+import EWelcomeCard from "../../components/employee/EWelcomCard"
 import Chart from "../../components/dashboard/Chat"
 import ClientsNots from "../../components/dashboard/ChatPercent"
 import MissionCard from "../../components/employee/MissionCard";
@@ -10,7 +10,7 @@ export default function EDashboard() {
     <Layout>
       <div className="row g-3 dashboard">
         <div className="col-sm-6">
-          <WelcomeCard />
+          <EWelcomeCard />
         </div>
         <div className="col-sm-6">
           <MissionCard />

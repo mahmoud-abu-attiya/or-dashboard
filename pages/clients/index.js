@@ -14,7 +14,7 @@ import Cookies from "js-cookie";
 // };
 
 const Clients = () => {
-  const [clients, setClients] = useState();
+  const [clients, setClients] = useState([]);
 
   useEffect(() => {
     axios
@@ -40,7 +40,7 @@ const Clients = () => {
         <div className="col">
           <h2>Clients</h2>
           <div className="row g-4 row-cols-1">
-            {clients ? (
+            {clients.length !== 0  ? (
               clients.map((client) => {
                 return (
                   <div key={client.id} className="col" loading="lazy">

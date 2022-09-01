@@ -287,6 +287,7 @@ i.info {
   transform: translate(-50%, -50%);
   font-size: 30px;
   font-weight: bold;
+  text-align: center;
 }
 
 .fa-facebook-f {
@@ -483,6 +484,7 @@ header.home .video > div iframe {
   border-radius: 1rem;
 }
 .dashboard .w-card .user_image {
+  position: relative;
   width: 20%;
   border-radius: 50%;
   overflow: hidden;
@@ -827,19 +829,6 @@ header.home .video > div iframe {
   padding: 20px;
   font-size: 20px;
 }
-.client_page .client_services .car {
-  color: #000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
-  box-shadow: none;
-  margin-bottom: 10px;
-}
-.client_page .client_services .car .progress {
-  height: 20px;
-  width: 50%;
-}
 .client_page .service-done {
   opacity: 0.7;
 }
@@ -1183,4 +1172,134 @@ header.home .video > div iframe {
   background-color: #f2ba35;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
+}
+
+.page {
+  background-color: #fff;
+}
+.page form {
+  max-height: 80vh;
+  max-width: 400px;
+  width: 90vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  padding: 20px;
+  border-radius: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.page form::-webkit-scrollbar {
+  width: 14px;
+}
+.page form::-webkit-scrollbar-thumb {
+  border: 4px solid rgba(0, 0, 0, 0);
+  background-clip: padding-box;
+  border-radius: 9px;
+  background-color: rgba(170, 170, 170, 0.5411764706);
+}
+.page form input[type=radio] {
+  width: auto;
+  box-shadow: none;
+  padding: none;
+  border: none;
+}
+.page form .cansel {
+  border: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+}
+.page form .cansel i {
+  color: #797979;
+}
+.page form #postType {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+.page form .post-info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px 0;
+}
+.page form .post-info input[type=file] {
+  display: none;
+}
+.page form .post-info label {
+  width: 100%;
+  background-color: #fff;
+  text-align: center;
+  font-size: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.page form .post-info label div {
+  font-size: 18px;
+}
+.page form .post-info img {
+  width: 100%;
+  border-radius: 5px;
+}
+.page .posts .post {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 10px 0;
+}
+.page .posts .post input[type=file] {
+  display: none;
+}
+.page .posts .post label {
+  width: 100%;
+  background-color: #fff;
+  text-align: center;
+  font-size: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.page .posts .post label div {
+  font-size: 18px;
+}
+.page .posts .post img {
+  width: 100%;
+  border-radius: 5px;
+}
+.page .posts .post .col-md-8 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.page .posts .post .foo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.page .posts .post .foo .btns {
+  margin-top: auto;
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+.page .posts .post .foo .btns button {
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  gap: 5px;
+  transition: 0.3s;
+}
+.page .posts .post .foo .btns button:hover {
+  opacity: 0.9;
+  box-shadow: 0 0.125rem 1.25rem rgba(0, 0, 0, 0.2);
+}
+.page .posts .post .foo .btns #editPost {
+  background-color: rgba(217, 166, 0, 0.4);
+}
+.page .posts .post .foo .btns #deletePost {
+  background-color: rgba(255, 0, 0, 0.4);
 }/*# sourceMappingURL=globals.css.map */

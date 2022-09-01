@@ -8,13 +8,6 @@ import jwt_decode from "jwt-decode"
 const WelcomCard = () => {
   const [user, setUser] = useState("");
 
-  // function parseJwt(token) {
-  //   if (!token) { return; }
-  //   const base64Url = token.split('.')[1];
-  //   const base64 = base64Url.replace('-', '+').replace('_', '/');
-  //   return JSON.parse(window.atob(base64));
-  // }
-
   useEffect(() => {
     const parseToken = jwt_decode(Cookies.get("token"))
     setUser(parseToken.user);
@@ -28,7 +21,7 @@ const WelcomCard = () => {
           <div className="user shadow bord-2">
             <div className="user_image">
               {user && (
-                <Image src={user.profile_image} alt="user name" layout='fill' />
+                <Image src={userPlaceholder} alt="user name" layout='fill' />
               )}
             </div>
             <div>
