@@ -13,11 +13,12 @@ export default function Profile() {
   useEffect(() => {
     axios.get("https://stormy-chamber-88256.herokuapp.com/api/client-services",{
       headers: {
-        Authorization: `Bearer ${Cookies.get("token")}`,
+        Authorization: `Bearer ${token}`,
       },
     })
     .then((res) => {
       console.log(res.data.client_services);
+      setservices(res.data.client_services)
     }).catch((err) => {
       console.log(err);
     })
@@ -25,10 +26,19 @@ export default function Profile() {
   return (
     <Layout>
       <div className="row social g-3">
+        {services ?  services.map((service) => {
+          return(
+            <div className="col-12" key={service.service_id}><Post /></div>
+          )
+        }) : (
+          <div className="col-12">
+            <div className="car">There is no services yet.</div>
+          </div>
+        )}
+        {/* <div className="col-12"><Post /></div>
         <div className="col-12"><Post /></div>
         <div className="col-12"><Post /></div>
-        <div className="col-12"><Post /></div>
-        <div className="col-12"><Post /></div>
+        <div className="col-12"><Post /></div> */}
       </div>
     </Layout>
   );

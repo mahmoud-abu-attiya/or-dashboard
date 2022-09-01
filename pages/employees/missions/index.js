@@ -17,6 +17,7 @@ const Clients = () => {
       })
       .then((res) => {
         setServices(res.data.employee_services);
+        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
